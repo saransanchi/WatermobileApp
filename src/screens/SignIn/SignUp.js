@@ -10,154 +10,70 @@ import {
 } from "react-native";
 import { auth } from "../../firebase";
 
+const SignUpScreen = ({ navigation }) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      if (user) {
+        navigation.replace("Home");
+      }
+    });
 
+    return unsubscribe;
+  }, []);
 
-class SignupScreen extends React.Component {
-    constructor(props) {
-      super(props);
-  
-      this.state = {
-        loading: true,
-        fullname: "",
-        lastname:"",
-        phone: "",
-        address:"",
-        email: "",
-        password: ""
-      };
-    }
-  
-    componentDidMount() {
-      this.authSubscription = auth().onAuthStateChanged(user => {
-        this.setState({
-          loading: false,
-          user
-        });
-      });
-    }
-  
-    componentWillUnmount() {
-      this.authSubscription && this.authSubscription();
-    }
-  
-    onRegister = () => {
-      const { email, password } = this.state;
-        auth()
-        .createUserWithEmailAndPassword(email, password)
-        .then(response => {
-          const { navigation } = this.props;
-          const { fullname, phone, email } = this.state;
-          const data = {
-            email: email,
-            firstname: fullname,
-            fullname: fullname,
-            fullname: fullname,
-            phone: phone,
-            appIdentifier: "rn-android-universal-listings"
-          };
-          user_uid = response.user._user.uid;
-          firestore()
-            .collection("users")
-            .doc(user_uid)
-            .set(data);
-          firestore()
-            .collection("users")
-            .doc(user_uid)
-            .get()
-            .then(function(user) {
-              navigation.dispatch({ type: "Login", user: user });
-            })
-            .catch(function(error) {
-              const { code, message } = error;
-              alert(message);
-            });
-        })
-        .catch(error => {
-          const { code, message } = error;
-          alert(message);
-        });
-    };
+  const handleSignUp = () => {
+    auth
+      .createUserWithEmailAndPassword(email, password)
+      .then((userCredentials) => {
+        const user = userCredentials.user;
+        console.log("Registered with:", user.email);
+      })
+      .catch((error) => alert(error.message));
+  };
 
-    render(){
-        return (
-            <KeyboardAvoidingView style={styles.container} behavior="padding">
-              <View style={styles.inputContainer}>
-              <TextInput
-                  placeholder="First name"
-                //   value={firstname}
-                onChangeText={text => this.setState({ fullname: text })}
-                value={this.state.fullname}
-                  style={styles.input}
-                  secureTextEntry
-                />
-                 <TextInput
-                  placeholder="Last name"
-                //   value={lastname}
-                  onChangeText={(text) => setPassword(text)}
-                  style={styles.input}
-                  secureTextEntry
-                />
-                 <TextInput
-                  placeholder="Address"
-                //   value={address}
-                  onChangeText={(text) => setPassword(text)}
-                  style={styles.input}
-                  secureTextEntry
-                />
-                
-                <TextInput
-                  placeholder="Email"
-                  value={email}
-                  onChangeText={(text) => setEmail(text)}
-                  style={styles.input}
-                />
-                 <TextInput
-                  placeholder="Contact No"
-                //   value={contactno}
-                  onChangeText={(text) => setPassword(text)}
-                  style={styles.input}
-                  secureTextEntry
-                />
-                <TextInput
-                  placeholder="Password"
-                //   value={password}
-                  onChangeText={(text) => setPassword(text)}
-                  style={styles.input}
-                  secureTextEntry
-                />
-              </View>
-              <View style={styles.buttonContainer}>
-                <TouchableOpacity
-                  onPress={handleSignUp}
-                  style={[styles.button, styles.buttonOutline]}
-                >
-                  <Text style={styles.buttonOutlineText}>Register</Text>
-                </TouchableOpacity>
-              </View>
-            </KeyboardAvoidingView>
-          );
-    }
-  
-    
-  }
+  const handleLogin = () => {
+    auth
+      .signInWithEmailAndPassword(email, password)
+      .then((userCredentials) => {
+        const user = userCredentials.user;
+        console.log("Logged in with:", user.email);
+      })
+      .catch((error) => alert(error.message));
+  };
 
-  
+  return (
+    <KeyboardAvoidingView style={styles.container} behavior="padding">
+      <View style={styles.inputContainer}>
+        <TextInput
+          placeholder="Email"
+          value={email}
+          onChangeText={(text) => setEmail(text)}
+          style={styles.input}
+        />
+        <TextInput
+          placeholder="Password"
+          value={password}
+          onChangeText={(text) => setPassword(text)}
+          style={styles.input}
+          secureTextEntry
+        />
+      </View>
 
-
-
-    const handleSignUp = () => {
-        auth
-          .createUserWithEmailAndPassword(email, password)
-          .then((userCredentials) => {
-            const user = userCredentials.user;
-            console.log("Registered with:", user.email);
-          })
-          .catch((error) => alert(error.message));
-      };
-
-  
-
+      <View style={styles.buttonContainer}>
+        
+        <TouchableOpacity
+          onPress={() => navigation.navigate('SignIn')}
+          style={[styles.button, styles.buttonOutline]}
+        >
+          <Text style={styles.buttonOutlineText}>Register</Text>
+        </TouchableOpacity>
+      </View>
+    </KeyboardAvoidingView>
+  );
+};
 
 export default SignUpScreen;
 
