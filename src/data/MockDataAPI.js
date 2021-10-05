@@ -12,35 +12,35 @@ export function getCategoryById(categoryId) {
   return category;
 }
 
-export function getIngredientName(ingredientID) {
-  let name;
-  ingredients.map(data => {
-    if (data.ingredientId == ingredientID) {
-      name = data.name;
-    }
-  });
-  return name;
-}
+// export function getIngredientName(ingredientID) {
+//   let name;
+//   ingredients.map(data => {
+//     if (data.ingredientId == ingredientID) {
+//       name = data.name;
+//     }
+//   });
+//   return name;
+// }
 
-export function getIngredientUrl(ingredientID) {
-  let url;
-  ingredients.map(data => {
-    if (data.ingredientId == ingredientID) {
-      url = data.photo_url;
-    }
-  });
-  return url;
-}
+// export function getIngredientUrl(ingredientID) {
+//   let url;
+//   ingredients.map(data => {
+//     if (data.ingredientId == ingredientID) {
+//       url = data.photo_url;
+//     }
+//   });
+//   return url;
+// }
 
-export function getCategoryName(categoryId) {
-  let name;
-  categories.map(data => {
-    if (data.id == categoryId) {
-      name = data.name;
-    }
-  });
-  return name;
-}
+// export function getCategoryName(categoryId) {
+//   let name;
+//   categories.map(data => {
+//     if (data.id == categoryId) {
+//       name = data.name;
+//     }
+//   });
+//   return name;
+// }
 
 export function getRecipes(categoryId) {
   const recipesArray = [];
