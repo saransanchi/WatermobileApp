@@ -7,23 +7,22 @@ import {
   TextInput,
   TouchableOpacity,
   View,
-  Image
 } from "react-native";
 
-const WelcomeScreen = ({ navigation }) => {
+const OrderScreen = ({ navigation }) => {
   return (
-    <View>
-    {/* <Image source={require('../../../assets/images/1.png')} /> */}
+    
+
       <View style={styles.buttonContainer}>
         <TouchableOpacity onPress={() => navigation.navigate('SignIn')} style={styles.button}>
           <Text style={styles.buttonText}>Get Start</Text>
-        </TouchableOpacity>   
+        </TouchableOpacity>
+        
       </View>
-    </View>
   );
 
   };
-export default WelcomeScreen;
+export default OrderScreen;
 
 const styles = StyleSheet.create({
   container: {
@@ -31,15 +30,21 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
- 
- 
+  inputContainer: {
+    width: "80%",
+  },
+  input: {
+    backgroundColor: "white",
+    paddingHorizontal: 15,
+    paddingVertical: 10,
+    borderRadius: 10,
+    marginTop: 5,
+  },
   buttonContainer: {
-    width: "90%",
-    marginLeft:"5%",
-    marginBottom:"5%",
+    width: "80%",
     justifyContent: "center",
     alignItems: "center",
-    marginTop:550,
+    marginTop:400,
     
     
   },
@@ -58,8 +63,8 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: "white",
-    fontWeight: "600",
-    fontSize: 20,
+    fontWeight: "700",
+    fontSize: 16,
   },
   buttonOutlineText: {
     color: "#0782F9",

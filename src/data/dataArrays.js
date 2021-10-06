@@ -12,29 +12,29 @@ export const products = [
     image_url: './assets/images/5.png'
     
   },
-  // {
-  //   id: 3,
-  //   name: '1 litre Bottle',
-  //   price: '60 /=',
-  //   image_url: '../assets/images/1.png'
+  {
+    id: 3,
+    name: '1 litre Bottle',
+    price: '60 /=',
+    image_url: '../assets/images/1.png'
 
-  // },
-  // {
-  //   id: 4,
-  //   name: ' 20 litre Empty Bottles',
-  //   price: '600 /=',
-  //   src: '.../assets/images/empty.png'
-  // },
-  // {
-  //   id: 5,
-  //   name: ' 5 litre Empty Bottles',
-  //   price: '120 /=',
-  //   src: '.../assets/images/empty.png'
-  // },
-  // {
-  //   id: 5,
-  //   name: 'Water(per litre)',
-  //   price: '3 /=',
-  //   src: '.../assets/images/empty.png'
-  // },
+  },
+  {
+    id: 4,
+    name: ' 20 litre Empty Bottles',
+    price: '600 /=',
+    src: '.../assets/images/empty.png'
+  },
+  {
+    id: 5,
+    name: ' 5 litre Empty Bottles',
+    price: '120 /=',
+    src: '.../assets/images/empty.png'
+  },
+  {
+    id: 5,
+    name: 'Water(per litre)',
+    price: '3 /=',
+    src: '.../assets/images/empty.png'
+  },
 ];
