@@ -8,7 +8,7 @@ export default function App() {
   return (
     <GlobalProvider>
      <Provider store={store}>
-      <AppContainer />
+       <AppContainer />
      </Provider>    
     </GlobalProvider>
 

@@ -2,7 +2,7 @@
   "expo": {
     "name": "E-water App",
     "slug": "ewaterapp",
-    "description": "",
+    "description": "this is the app for using the online water delivery",
     "privacy": "public",
     "platforms": [
       "ios",
