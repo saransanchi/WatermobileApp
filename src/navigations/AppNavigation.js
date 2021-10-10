@@ -5,11 +5,7 @@ import { createStackNavigator } from "react-navigation-stack";
 import HomeScreen from "../screens/Home/HomeScreen";
 import CategoriesScreen from "../screens/Categories/CategoriesScreen";
 import DescribtionScreen from "../screens/Description/DescribtionScreen";
-import RecipesListScreen from "../screens/RecipesList/RecipesListScreen";
 import DrawerContainer from "../screens/DrawerContainer/DrawerContainer";
-import IngredientScreen from "../screens/Ingredient/IngredientScreen";
-import SearchScreen from "../screens/Search/SearchScreen";
-import IngredientsDetailsScreen from "../screens/IngredientsDetails/IngredientsDetailsScreen";
 import SignInScreen from "../screens/SignIn/SignIn";
 import WelcomeScreen from "../screens/Welcome/WelcomeScreen";
 import SignUpScreen from "../screens/SignIn/SignUp";
@@ -33,10 +29,6 @@ const MainNavigator = createStackNavigator(
     End: EndScreen,
     Categories: CategoriesScreen,
     Describtion: DescribtionScreen,
-    RecipesList: RecipesListScreen,
-    Ingredient: IngredientScreen,
-    Search: SearchScreen,
-    IngredientsDetails: IngredientsDetailsScreen,
   },
   {
     initialRouteName: "Welcome",
