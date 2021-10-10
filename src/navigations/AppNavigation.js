@@ -39,7 +39,7 @@ const MainNavigator = createStackNavigator(
     IngredientsDetails: IngredientsDetailsScreen,
   },
   {
-    initialRouteName: "Home",
+    initialRouteName: "Welcome",
     defaulfNavigationOptions: ({ navigation }) => ({
       headerTitleStyle: {
         fontWeight: "bold",
