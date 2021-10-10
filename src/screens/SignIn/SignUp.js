@@ -1,5 +1,6 @@
 import { useNavigation } from "@react-navigation/core";
 import React, { useEffect, useState } from "react";
+import firebase from "../../firebase";
 import {
   KeyboardAvoidingView,
   StyleSheet,
@@ -7,17 +8,22 @@ import {
   TextInput,
   TouchableOpacity,
   View,
+  Image
 } from "react-native";
-import { auth } from "../../firebase";
-
 const SignUpScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [firstname, setFirstname] = useState("");
+  const [lastname, setLasttname] = useState("");
+  const [address, setAddress] = useState("");
+  const [contactno, setContactno] = useState("");
+
+  const image = { uri: "http://gsmcloud.xyz/logo.png" };
 
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((user) => {
+    const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
       if (user) {
-        navigation.replace("Home");
+        navigation.replace("SignIn");
       }
     });
 
@@ -25,32 +31,70 @@ const SignUpScreen = ({ navigation }) => {
   }, []);
 
   const handleSignUp = () => {
-    auth
+    firebase.auth() 
       .createUserWithEmailAndPassword(email, password)
-      .then((userCredentials) => {
+      .then(async(userCredentials) => {
         const user = userCredentials.user;
-        console.log("Registered with:", user.email);
+        await firebase.firestore()
+            .collection('users')
+            .doc(user.uid)
+            .set({
+              firstname,
+              lastname,
+              contactno,
+              email,
+              address
+            }).then(res=>{
+              console.log("Registered sucess");
+            }).catch(err=>console.log('firestore error',err))
       })
       .catch((error) => alert(error.message));
   };
 
-  const handleLogin = () => {
-    auth
-      .signInWithEmailAndPassword(email, password)
-      .then((userCredentials) => {
-        const user = userCredentials.user;
-        console.log("Logged in with:", user.email);
-      })
-      .catch((error) => alert(error.message));
-  };
+  // const handleLogin = () => {
+  //   auth
+  //     .signInWithEmailAndPassword(email, password)
+  //     .then((userCredentials) => {
+  //       const user = userCredentials.user;
+  //       console.log("Logged in with:", user.email);
+  //     })
+  //     .catch((error) => alert(error.message));
+  // };
 
   return (
     <KeyboardAvoidingView style={styles.container} behavior="padding">
+      <View style={styles.logocontainer}>
+      <Image source={image} style={styles.logo}/>
+      </View>
       <View style={styles.inputContainer}>
+      <TextInput
+          placeholder="First Name"
+          value={firstname}
+          onChangeText={(text) => setFirstname(text)}
+          style={styles.input}
+        />
         <TextInput
-          placeholder="Email"
-          value={email}
-          onChangeText={(text) => setEmail(text)}
+          placeholder="Last Name"
+          value={lastname}
+          onChangeText={(text) => setLasttname(text)}
+          style={styles.input}
+        />
+        <TextInput
+        placeholder="Email"
+        value={email}
+        onChangeText={(text) => setEmail(text)}
+        style={styles.input}
+        />
+        <TextInput
+          placeholder="Address"
+          value={address}
+          onChangeText={(text) => setAddress(text)}
+          style={styles.input}
+        />
+        <TextInput
+          placeholder="Contact No"
+          value={contactno}
+          onChangeText={(text) => setContactno(text)}
           style={styles.input}
         />
         <TextInput
@@ -63,12 +107,8 @@ const SignUpScreen = ({ navigation }) => {
       </View>
 
       <View style={styles.buttonContainer}>
-        
-        <TouchableOpacity
-          onPress={() => navigation.navigate('SignIn')}
-          style={[styles.button, styles.buttonOutline]}
-        >
-          <Text style={styles.buttonOutlineText}>Register</Text>
+      <TouchableOpacity onPress={handleSignUp} style={styles.button}>
+          <Text style={styles.buttonText}>Create</Text>
         </TouchableOpacity>
       </View>
     </KeyboardAvoidingView>
@@ -83,6 +123,17 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
+  logocontainer:{
+    width:"80%",
+    height:100,
+    justifyContent: "center",
+    alignItems: "center",
+
+  },
+  logo:{
+   width:150,
+   height:100 
+  },  
   inputContainer: {
     width: "80%",
   },
