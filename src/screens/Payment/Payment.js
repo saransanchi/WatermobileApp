@@ -127,6 +127,7 @@ export default class PaymentScreen extends React.Component {
           <View style={{ marginBottom: 10 }}>
             <Button
               onPress={() => {
+                navigation.navigate('CancelDelivery')
                 console.log("deliveryAddress", this.state.deliveryAddress);
               }}
               color="red"

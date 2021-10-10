@@ -13,8 +13,8 @@ import OrderScreen from "../screens/Order/OrderScreen";
 import EndScreen from "../screens/End/EndScreen";
 import PaymentScreen from "../screens/Payment/Payment";
 import CardPaymentScreen from "../screens/Payment/CardPayment";
-
-
+import CancelDeliveryScreen from "../screens/Payment/CancelDelivery";
+import MyOrdersScreen from "../screens/Order/MyOrders";
 
 // const image = { uri: "http://gsmcloud.xyz/favicon.png" };
 const MainNavigator = createStackNavigator(
@@ -29,9 +29,11 @@ const MainNavigator = createStackNavigator(
     End: EndScreen,
     Categories: CategoriesScreen,
     Describtion: DescribtionScreen,
+    CancelDelivery:CancelDeliveryScreen,
+    MyOrders:MyOrdersScreen
   },
   {
-    initialRouteName: "CardPayment",
+    initialRouteName: "Home",
     defaulfNavigationOptions: ({ navigation }) => ({
       headerTitleStyle: {
         fontWeight: "bold",
