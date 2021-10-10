@@ -42,7 +42,7 @@ export default class PaymentScreen extends React.Component {
     if (this.state.deliveryAddress === "") {
       Alert.alert("Please enter delivery address");
     } else {
-      this.props.navigation.navigate("CardPaymentScreen");
+      this.props.navigation.navigate("CardPayment");
     }
   };
 
@@ -92,14 +92,19 @@ export default class PaymentScreen extends React.Component {
           </View>
         </View>
         <View style={{ flex: 2, paddingHorizontal: 10 }}>
-          <Text style={{ fontSize: 17, marginBottom: 10 }}>
+          <Text style={{ fontSize: 17, marginBottom: 10, fontWeight:"bold" }}>
             Delivery Address
           </Text>
           <TextInput
             onChangeText={(text) => this.setState({ deliveryAddress: text })}
             multiline
             numberOfLines={4}
-            style={{ borderBottomWidth: 1, marginBottom: 100 }}
+            style={{ borderBottomWidth: 1, marginBottom: 100,
+            backgroundColor: "white",
+            paddingHorizontal: 15,
+            paddingVertical: 10,
+            borderRadius: 10,
+            marginTop: 5,}}
             placeholder="Enter your delivery address"
           />
         </View>

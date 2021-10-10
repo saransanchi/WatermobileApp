@@ -44,7 +44,7 @@ export default class CardPaymentScreen extends React.Component {
         }}
       >
         <View style={{ flex: 2, paddingHorizontal: 10, marginTop: 120 }}>
-          <Text style={{ fontSize: 17 }}>Card Number</Text>
+          <Text style={{ fontSize: 17,fontWeight:"bold" }}>Card Number</Text>
           <TextInput
             multiline
             numberOfLines={1}
@@ -52,7 +52,7 @@ export default class CardPaymentScreen extends React.Component {
             placeholder="Enter the card number"
           />
 
-          <Text style={{ fontSize: 17 }}>Expiry date</Text>
+          <Text style={{ fontSize: 17 ,fontWeight:"bold"}}>Expiry date</Text>
           <TextInput
             multiline
             numberOfLines={1}
@@ -60,7 +60,7 @@ export default class CardPaymentScreen extends React.Component {
             placeholder="Enter the expiry date"
           />
 
-          <Text style={{ fontSize: 17 }}>CVC</Text>
+          <Text style={{ fontSize: 17,fontWeight:"bold"}}>CVC</Text>
           <TextInput
             multiline
             numberOfLines={1}
@@ -68,10 +68,13 @@ export default class CardPaymentScreen extends React.Component {
             placeholder="Enter the CVC number"
           />
         </View>
+        <View style={{width:350,paddingLeft:12}}>
         <Button
           onPress={() => this.props.navigation.navigate("End")}
           title="Confirm order"
+          
         />
+        </View>
       </View>
     );
   }

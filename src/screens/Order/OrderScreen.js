@@ -92,7 +92,7 @@ export default class OrderScreen extends React.Component {
           </Text>
           <Button
             onPress={() =>
-              this.props.navigation.navigate("PaymentScreen", {
+              this.props.navigation.navigate("Payment", {
                 total: this.fillTotal(item),
               })
             }

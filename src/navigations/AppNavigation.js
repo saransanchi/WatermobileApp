@@ -19,8 +19,8 @@ import CardPaymentScreen from "../screens/Payment/CardPayment";
 // const image = { uri: "http://gsmcloud.xyz/favicon.png" };
 const MainNavigator = createStackNavigator(
   {
-    CardPaymentScreen: CardPaymentScreen,
-    PaymentScreen: PaymentScreen,
+    CardPayment: CardPaymentScreen,
+    Payment: PaymentScreen,
     SignIn: SignInScreen,
     SignUp: SignUpScreen,
     Welcome: WelcomeScreen,
@@ -31,7 +31,7 @@ const MainNavigator = createStackNavigator(
     Describtion: DescribtionScreen,
   },
   {
-    initialRouteName: "Welcome",
+    initialRouteName: "CardPayment",
     defaulfNavigationOptions: ({ navigation }) => ({
       headerTitleStyle: {
         fontWeight: "bold",
