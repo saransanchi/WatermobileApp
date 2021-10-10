@@ -4,7 +4,7 @@ import { createStackNavigator } from "react-navigation-stack";
 
 import HomeScreen from "../screens/Home/HomeScreen";
 import CategoriesScreen from "../screens/Categories/CategoriesScreen";
-import RecipeScreen from "../screens/Recipe/RecipeScreen";
+import DescribtionScreen from "../screens/Description/DescribtionScreen";
 import RecipesListScreen from "../screens/RecipesList/RecipesListScreen";
 import DrawerContainer from "../screens/DrawerContainer/DrawerContainer";
 import IngredientScreen from "../screens/Ingredient/IngredientScreen";
@@ -13,22 +13,33 @@ import IngredientsDetailsScreen from "../screens/IngredientsDetails/IngredientsD
 import SignInScreen from "../screens/SignIn/SignIn";
 import WelcomeScreen from "../screens/Welcome/WelcomeScreen";
 import SignUpScreen from "../screens/SignIn/SignUp";
+import OrderScreen from "../screens/Order/OrderScreen";
+import EndScreen from "../screens/End/EndScreen";
+import PaymentScreen from "../screens/Payment/Payment";
+import CardPaymentScreen from "../screens/Payment/CardPayment";
 
+
+
+// const image = { uri: "http://gsmcloud.xyz/favicon.png" };
 const MainNavigator = createStackNavigator(
   {
+    CardPaymentScreen: CardPaymentScreen,
+    PaymentScreen: PaymentScreen,
     SignIn: SignInScreen,
     SignUp: SignUpScreen,
-    Welcome:WelcomeScreen,
+    Welcome: WelcomeScreen,
     Home: HomeScreen,
+    Order: OrderScreen,
+    End: EndScreen,
     Categories: CategoriesScreen,
-    Recipe: RecipeScreen,
+    Describtion: DescribtionScreen,
     RecipesList: RecipesListScreen,
     Ingredient: IngredientScreen,
     Search: SearchScreen,
     IngredientsDetails: IngredientsDetailsScreen,
   },
   {
-    initialRouteName: "Welcome",
+    initialRouteName: "Home",
     defaulfNavigationOptions: ({ navigation }) => ({
       headerTitleStyle: {
         fontWeight: "bold",
@@ -45,13 +56,11 @@ const DrawerStack = createDrawerNavigator(
     Main: MainNavigator,
   },
   {
-    drawerPosition: "left",
+    drawerPosition:"left",
     initialRouteName: "Main",
-    drawerWidth: 250,
+    drawerWidth: 200,
     contentComponent: DrawerContainer,
   }
 );
 
 export default AppContainer = createAppContainer(DrawerStack);
-
-console.disableYellowBox = true;

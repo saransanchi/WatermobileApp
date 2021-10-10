@@ -10,30 +10,33 @@ import {
   Image,
   ImageBackground
 } from "react-native";
-const image = { uri: "http://gsmcloud.xyz/getstartf.jpg" };
 
-
-const WelcomeScreen = ({ navigation }) => {
+const image = { uri: "http://gsmcloud.xyz/end.jpg" };
+const EndScreen = ({ navigation }) => {
+    
   return (
-    <View style={styles.Container}> 
+    <View style={styles.Container}>
     <ImageBackground source={image} resizeMode="cover" style={{height:"100%", width:"100%"}}>
+    <View style={styles.headerContainer}>
 
-    <View style={styles.buttonContainer}>
-        <TouchableOpacity onPress={() => navigation.navigate('SignIn')} style={styles.button}>
-          <Text style={styles.buttonText}>Get Start</Text>
+    <Text style={styles.Textinfo}>Thank you For Your Orders{"\n"}Wait For Order Again.</Text>
+    </View>
+
+      <View style={styles.buttonContainer}>
+        <TouchableOpacity onPress={() => navigation.navigate('Home')} style={styles.button}>
+          <Text style={styles.buttonText}>Make Another Order</Text>
         </TouchableOpacity>   
       </View>
-    </ImageBackground>
+      </ImageBackground>
     </View>
   );
 
   };
-export default WelcomeScreen;
+export default EndScreen;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    width:"100%",
+    width: "100%",
     height:"100%",
     justifyContent: "center",
     alignItems: "center",
@@ -42,13 +45,21 @@ const styles = StyleSheet.create({
  
   buttonContainer: {
     width: "90%",
+    height:100,
     marginLeft:"5%",
-    marginBottom:"5%",
+    marginBottom:"25%",
     justifyContent: "center",
     alignItems: "center",
-    marginTop:550,
+    marginTop:50,
     
     
+  },
+  headerContainer:{
+    width: "100%",
+    height:"10%",
+    marginTop:300,
+    justifyContent: "center",
+    alignItems: "center",
   },
   button: {
     backgroundColor: "#0782F9",
@@ -73,4 +84,12 @@ const styles = StyleSheet.create({
     fontWeight: "700",
     fontSize: 16,
   },
+  Textinfo:{
+        fontSize:25,
+        margin:25,
+        fontWeight: 'bold',
+        color:"white",
+        textAlign: "auto",
+     
+  }
 });
