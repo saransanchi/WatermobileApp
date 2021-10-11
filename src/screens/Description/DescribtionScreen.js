@@ -53,11 +53,11 @@ export default class DescribtionScreen extends React.Component {
 
     return (
       <ScrollView style={styles.container}>
-          <View style={styles.carouselContainer}>
-            <View style={styles.imageContainer}>
-          <View style={styles.carousel}>
-          <Image style={styles.image} source={{ uri: item.image_url }} />           
-          </View>
+        <View style={styles.carouselContainer}>
+          <View style={styles.imageContainer}>
+            <View style={styles.carousel}>
+              <Image style={styles.image} source={{ uri: item.image_url }} />
+            </View>
           </View>
         </View>
         <View style={styles.infoRecipeContainer}>
@@ -69,12 +69,12 @@ export default class DescribtionScreen extends React.Component {
         </View>
         <View style={styles.infoContainer}>
           <Text style={styles.infoDescriptionRecipe}>{item.description}</Text>
-          </View>
-          <View style={styles.buttonContainer}>
+        </View>
+        <View style={styles.buttonContainer}>
           <TouchableOpacity onPress={() => navigation.navigate('Home')} style={styles.button}>
-          <Text style={styles.buttonText}>Back to Home</Text>
-        </TouchableOpacity> 
-        
+            <Text style={styles.buttonText}>Back to Home</Text>
+          </TouchableOpacity>
+
         </View>
       </ScrollView>
     );

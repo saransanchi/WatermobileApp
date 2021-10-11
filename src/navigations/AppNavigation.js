@@ -14,6 +14,7 @@ import PaymentScreen from "../screens/Payment/Payment";
 import CardPaymentScreen from "../screens/Payment/CardPayment";
 import CancelDeliveryScreen from "../screens/Payment/CancelDelivery";
 import MyOrdersScreen from "../screens/Order/MyOrders";
+import ProfileScreen from "../screens/SignIn/Profile";
 
 // const image = { uri: "http://gsmcloud.xyz/favicon.png" };
 const MainNavigator = createStackNavigator(
@@ -28,7 +29,8 @@ const MainNavigator = createStackNavigator(
     End: EndScreen,
     Describtion: DescribtionScreen,
     CancelDelivery:CancelDeliveryScreen,
-    MyOrders:MyOrdersScreen
+    MyOrders:MyOrdersScreen,
+    Profile:ProfileScreen
   },
   {
     initialRouteName: "Welcome",

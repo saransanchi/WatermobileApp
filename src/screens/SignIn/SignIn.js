@@ -37,7 +37,7 @@ const LoginScreen = ({ navigation }) => {
         gContext.changeAuthUser(user.uid)
         console.log("Logged in with:", user.email);
       })
-      .catch((error) => alert(error.message));
+      .catch((error) => alert("Incorrect ,plz check your email,password again"));
   };
 
   return (

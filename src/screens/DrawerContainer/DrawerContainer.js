@@ -24,7 +24,7 @@ export default class DrawerContainer extends React.Component {
       <View style={styles.drawer}>
         <View style={styles.accountcontent}>
           <Image source={image} style={{ height: 80, width: 80, marginLeft: 20, marginTop: 40 }} />
-          <Text style={{ color: "white", fontSize: 17, fontWeight: "bold", marginLeft: 20, marginTop: 30 }}>sarn sanchi</Text>
+          <Text style={{ color: "white", fontSize: 17, fontWeight: "bold", marginLeft: 20, marginTop: 30 }}>saran sanchi</Text>
         </View>
         <View style={{ marginTop: 20, marginLeft: 15 }}>
           <TouchableOpacity style={{ flexDirection: "row", marginTop: 10 }}
@@ -45,7 +45,7 @@ export default class DrawerContainer extends React.Component {
           </TouchableOpacity>
           <TouchableOpacity style={{ flexDirection: "row", marginTop: 10 }}
           onPress={() => {
-            navigation.navigate("MyOrders");
+            navigation.navigate("Profile");
               navigation.closeDrawer();
           }}
           >
