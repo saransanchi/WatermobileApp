@@ -16,7 +16,6 @@ import CancelDeliveryScreen from "../screens/Payment/CancelDelivery";
 import MyOrdersScreen from "../screens/Order/MyOrders";
 import ProfileScreen from "../screens/SignIn/Profile";
 
-// const image = { uri: "http://gsmcloud.xyz/favicon.png" };
 const MainNavigator = createStackNavigator(
   {
     CardPayment: CardPaymentScreen,
