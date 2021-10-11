@@ -27,22 +27,6 @@ export default class Profile extends React.Component {
         ),
     });
 
-    state = {
-        basketItems: [],
-    };
-
-    constructor(props) {
-        super(props);
-    }
-    onPressProduct = (item) => {
-        this.props.navigation.navigate("Describtion", { item });
-    };
-    onPressOrder = (products) => {
-        this.props.navigation.navigate("Order", { products });
-    };
-
-
-
 
 
     render() {
