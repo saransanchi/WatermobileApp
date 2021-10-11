@@ -31,7 +31,7 @@ const MainNavigator = createStackNavigator(
     MyOrders:MyOrdersScreen
   },
   {
-    initialRouteName: "Home",
+    initialRouteName: "Welcome",
     defaulfNavigationOptions: ({ navigation }) => ({
       headerTitleStyle: {
         fontWeight: "bold",
