@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
     width:200,
   },
   accountcontent:{
-    backgroundColor:"blue", 
+    backgroundColor:"#0782F9", 
     width:200,
     height:200
   },

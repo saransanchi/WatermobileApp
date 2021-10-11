@@ -37,17 +37,22 @@ export default class DrawerContainer extends React.Component {
           </TouchableOpacity>
           <TouchableOpacity style={{ flexDirection: "row", marginTop: 10 }}
             onPress={() => {
-              navigation.navigate("Home");
+              navigation.navigate("MyOrders");
               navigation.closeDrawer();
             }}>
             <Image source={require("../../../assets/icons/category.png")} style={{ height: 20, width: 20 }} />
             <Text style={{ color: "black", fontSize: 17, fontWeight: "bold", marginLeft: 15 }}>Orders</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={{ flexDirection: "row", marginTop: 10 }}>
+          <TouchableOpacity style={{ flexDirection: "row", marginTop: 10 }}
+          onPress={() => {
+            navigation.navigate("MyOrders");
+              navigation.closeDrawer();
+          }}
+          >
             <Image source={require("../../../assets/icons/info.png")} style={{ height: 20, width: 20 }} />
             <Text style={{ color: "black", fontSize: 17, fontWeight: "bold", marginLeft: 15 }}>Account</Text>
           </TouchableOpacity>
-          <View style={{ width: 150, backgroundColor: "blue", marginTop: 200, borderRadius: 15, paddingLeft: 25, paddingBottom:10 }}>
+          <View style={{ width: 150, backgroundColor: "#0782F9", marginTop: 200, borderRadius: 15, paddingLeft: 25, paddingBottom:10 }}>
             <TouchableOpacity style={{ flexDirection: "row", marginTop: 10 }}
               onPress={() => {
                 firebase.auth()

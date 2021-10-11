@@ -10,6 +10,8 @@ import {
   TouchableHighlight
 } from 'react-native';
 import styles from './styles';
+const image = { uri: "http://gsmcloud.xyz/logo.png" };
+
 
 export default class SplashScreen extends React.Component {
   constructor(props) {
@@ -18,7 +20,7 @@ export default class SplashScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Image style={styles.photo} source={require('../../../assets/images/20.png')} />
+        <Image style={styles.photo} source={image} />
       </View>
     );
   }
