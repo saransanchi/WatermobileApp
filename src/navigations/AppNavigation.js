@@ -3,7 +3,6 @@ import { createDrawerNavigator } from "react-navigation-drawer";
 import { createStackNavigator } from "react-navigation-stack";
 
 import HomeScreen from "../screens/Home/HomeScreen";
-import CategoriesScreen from "../screens/Categories/CategoriesScreen";
 import DescribtionScreen from "../screens/Description/DescribtionScreen";
 import DrawerContainer from "../screens/DrawerContainer/DrawerContainer";
 import SignInScreen from "../screens/SignIn/SignIn";
@@ -27,7 +26,6 @@ const MainNavigator = createStackNavigator(
     Home: HomeScreen,
     Order: OrderScreen,
     End: EndScreen,
-    Categories: CategoriesScreen,
     Describtion: DescribtionScreen,
     CancelDelivery:CancelDeliveryScreen,
     MyOrders:MyOrdersScreen

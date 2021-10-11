@@ -71,8 +71,8 @@ export default class DescribtionScreen extends React.Component {
           <Text style={styles.infoDescriptionRecipe}>{item.description}</Text>
           </View>
           <View style={styles.buttonContainer}>
-          <TouchableOpacity onPress={() => navigation.navigate('Order')} style={styles.button}>
-          <Text style={styles.buttonText}> buy now</Text>
+          <TouchableOpacity onPress={() => navigation.navigate('Home')} style={styles.button}>
+          <Text style={styles.buttonText}>Back to Home</Text>
         </TouchableOpacity> 
         
         </View>
@@ -81,10 +81,4 @@ export default class DescribtionScreen extends React.Component {
   }
 }
 
-/*cooking steps
-<View style={styles.infoContainer}>
-  <Image style={styles.infoPhoto} source={require('../../../assets/icons/info.png')} />
-  <Text style={styles.infoRecipe}>Cooking Steps</Text>
-</View>
-<Text style={styles.infoDescriptionRecipe}>{item.description}</Text>
-*/
+
